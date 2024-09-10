@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #yas {
+        display: block;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      body {
+        font-family: Helvetica, sans-serif;
+        line-height: 115%;
+
+        padding-top: 5%;
+      }
+      form {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 10%;
+      }
+      input {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .check {
+        display: inline;
+      }
+      .checks {
+        display: block;
+      }
+      fieldset {
+        margin-bottom: 10px;
+      }
+    </style>
+    <!-- this specifies the character set encoding. w/o this tag, our fonts might not load properly -->
+    <meta charset="utf-8" />
+    <!-- the viewport tag sets the initial scale and ensures proper responsive behavior -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- title tag shows up in browser tab and search results -->
+    <title>HTML Form elements</title>
+  </head>
+  <body>
+    <p id="yas">form with basic info</p>
+    <!-- action is where to send the data from the form -->
+    <!-- method is how we send the data-->
+    <!-- we need to name our form so our scripts can identify it -->
+    <!-- target _blank or _self, _self reloads the same page once the form is submitted-->
+    <form action="#" method="POST" name="sample-form" target="_self">
+      <p>
+        you can put any HTML inside a form element, but you should stick to
+        images and text that give instructions for the form.
+      </p>
+
+      <!-- fieldset groups form items together -->
+      <fieldset>
+        <!-- legend tag names a fieldset -->
+        <legend>simple text input</legend>
+        <p>
+          the box and title of the form group are created by the fieldset and
+          legend tags
+        </p>
+        <label for="first-name">first name</label>
+        <input type="text" name="first-name" id="first-name" required />
+        <label for="last-name">last name</label>
+        <input
+          type="text"
+          placeholder="smith"
+          name="last-name"
+          id="last-name"
+          required
+          maxlength="256"
+        />
+        <label for="age">age</label>
+        <input type="number" name="age" id="age" required min="0" max="100" />
+        <label for="email">email</label>
+        <input type="email" name="email" />
+        <label for="password">password</label>
+        <input type="password" name="password" />
+      </fieldset>
+      <fieldset>
+        <legend>text area tag</legend>
+        <p>
+          textAreas are for longer text answers. like sentences or longer
+          answers
+        </p>
+        <label for="whyIDM">Why did you come to IDM?</label><br />
+        <textarea name="whyIDM" cols="50" rows="10"></textarea>
+      </fieldset>
+      <fieldset>
+        <legend>check boxes</legend>
+        <p>
+          check boxes allow the user to select more than one option at once.
+          check boxes all have the same name but different values!
+        </p>
+        <label for="pet">what pets do you have</label><br />
+        <span class="checks"
+          ><input class="check" type="checkbox" name="pet" value="dog" />
+          dog</span
+        >
+        <span class="checks"
+          ><input class="check" type="checkbox" name="pet" value="cat" />
+          cat</span
+        >
+        <span class="checks"
+          ><input class="check" type="checkbox" name="pet" value="bird" />
+          bird</span
+        >
+        <span class="checks"
+          ><input class="check" type="checkbox" name="pet" value="chicken" />
+          chicken</span
+        >
+        <span class="checks"
+          ><input class="check" type="checkbox" name="pet" value="lizard" />
+          lizard</span
+        >
+      </fieldset>
+      <fieldset>
+        <legend>radio</legend>
+        <p>radio fields let the user pick one (and only one!) option</p>
+        <label for="pet">what is your favorite pet</label><br />
+        <span class="checks"
+          ><input class="check" type="radio" name="pet" value="dog" /> dog</span
+        >
+        <span class="checks"
+          ><input class="check" type="radio" name="pet" value="cat" /> cat</span
+        >
+        <span class="checks"
+          ><input class="check" type="radio" name="pet" value="bird" />
+          bird</span
+        >
+        <span class="checks"
+          ><input class="check" type="radio" name="pet" value="chicken" />
+          chicken</span
+        >
+        <span class="checks"
+          ><input class="check" type="radio" name="pet" value="lizard" />
+          lizard</span
+        >
+      </fieldset>
+      <fieldset>
+        <legend>select options</legend>
+        <p>
+          using select and option tags, you can add and remove items from a
+          dropdown
+        </p>
+        <label for="state">state/province</label>
+        <select name="state">
+          <option value="NY">New York</option>
+          <option value="TX">Texas</option>
+          <option value="KS">Kansas</option>
+          <optgroup>
+            <option value="ON">Ontario</option>
+          </optgroup>
+        </select>
+      </fieldset>
+      <p>finally we use a button to submit our form</p>
+      <button role="button">contact us</button>
+    </form>
+  </body>
+</html>

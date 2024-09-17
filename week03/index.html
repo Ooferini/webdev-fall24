@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS stuff</title>
+    <style type="text/css">
+      /* universal selector is commonly used to zero out the browser defualt margins and padding */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* tag selectors aka type or element selectors apply to every instance of that tag on the page */
+      body {
+        background-color: antiquewhite;
+      }
+
+      p {
+        /* 1rem = 16px */
+        font-family: Helvetica, Arial, sans-serif;
+        padding-bottom: 0.2rem;
+      }
+
+      .code {
+        font-family: "Basically A Mono", "Courier New", Courier, monospace;
+      }
+      a {
+        color: darkgreen;
+        text-decoration: wavy underline;
+      }
+      #boxes {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .box {
+        padding: 5rem;
+        border: 1px solid black;
+        margin: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="boxes">
+      <div class="box">
+        <p>box 1</p>
+        <p class="code">and this is a different font</p>
+        <a href="#"><p>your mom</p></a>
+      </div>
+      <div class="box">
+        <p>box 2</p>
+        <p class="code">and this is a different font</p>
+        <a href="#"><p>your mom</p></a>
+      </div>
+      <div class="box">
+        <p>box 3</p>
+        <p class="code">and this is a different font</p>
+        <a href="#"><p>your mom</p></a>
+      </div>
+      <div class="box">
+        <p>box 4</p>
+        <p class="code">and this is a different font</p>
+        <a href="#"><p>your mom</p></a>
+      </div>
+    </div>
+  </body>
+</html>

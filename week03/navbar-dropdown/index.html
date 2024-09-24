@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        padding: 20px;
+        font-size: 13px;
+        text-align: center;
+        background-color: RGBA(0, 0, 0, 0.1);
+      }
+      ul {
+        display: inline;
+        margin: 0;
+        padding: 15px 4px 17px 0;
+        list-style-type: none;
+        box-shadow: 10px 5px 5px black;
+      }
+      ul li {
+        display: inline-block;
+        position: relative;
+        padding: 15px 20px;
+        background-color: #fff;
+        cursor: pointer;
+        /* transition is always applied to the base style state, when we use the keyword all, any css properties will animate from one to the other */
+        transition: all 0.9s;
+      }
+
+      ul li:hover {
+        background-color: grey;
+        color: white;
+      }
+      ul li ul {
+        padding: 0;
+        position: absolute;
+        top: 48px;
+        left: 0;
+        width: 150px;
+        box-shadow: none;
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+      }
+    </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>navbar-dropdown</title>
+  </head>
+  <body>
+    <ul>
+      <li>Link 1</li>
+      <li>Link 2</li>
+      <li>
+        Link 3
+        <ul>
+          <li>sublink 1</li>
+          <li>sublink 2</li>
+          <li>sublink 3</li>
+        </ul>
+      </li>
+      <li>Link 4</li>
+    </ul>
+  </body>
+</html>

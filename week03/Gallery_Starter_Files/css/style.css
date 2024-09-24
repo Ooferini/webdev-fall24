@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+/* font-family: "Kaushan Script", cursive; */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* this is how we get a full sized fixed centered background */
+  background: url("../img/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+body {
+  font-family: "Kaushan Script", cursive;
+  /* If the parent element has it, so will the child elements, unless we override it */
+}
+
+.container {
+  width: 900px;
+  margin: 0 auto;
+  /* when we use inline block to stack things we have to zero out font size on the container element */
+  font-size: 0;
+}
+
+.polaroid {
+  width: 260px;
+  margin: 20px;
+  display: inline-block;
+  /* WHENEVER YOU WANT A CHILD ELEMENT TO POSITION IN A PARENT ELEMENT, YOU HAVE TO RELATIVE POSITION THE PARENT*/
+  position: relative;
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  border: 10px solid white;
+  border-bottom-width: 45px;
+}
+
+.polaroid p {
+  font-size: 1rem;
+  position: absolute;
+  bottom: 14px;
+  width: 280px;
+  text-align: center;
+}

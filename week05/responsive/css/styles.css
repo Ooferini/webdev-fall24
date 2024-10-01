@@ -1,0 +1,142 @@
+/* GLOBAL STYLES */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #666;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* DESKTOP FIRST DESIGN PATTERN */
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url("../img/grey_wash_wall.png");
+  padding: 0 2rem;
+  position: relative;
+}
+
+.brand {
+  margin: 0;
+  font-weight: 300;
+}
+
+header a {
+  color: #abf;
+  text-decoration: none;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+
+.menu li {
+  min-width: 5rem;
+}
+
+.menu li a {
+  display: block;
+  padding: 1rem;
+}
+
+.menu li a:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.container {
+  display: flex;
+  padding: 2rem;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.thumb {
+  width: 23%;
+  height: auto;
+}
+
+/* media queries */
+/* if you style desktop first, you need to use the < #PX in your media query */
+
+/* TABLET */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  body {
+    background-color: #77aa77;
+  }
+  .thumb {
+    width: 45%;
+    margin: 1rem auto;
+  }
+}
+
+/* anything smaller than an ipad classic is a mobile phone */
+@media only screen and (max-width: 767px) {
+  header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0;
+  }
+  body {
+    background-color: #7777aa;
+  }
+
+  .brand {
+    margin: 0.5rem;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    display: block;
+    font-size: 2rem;
+    color: #abf;
+    cursor: pointer;
+  }
+
+  .menu {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .container {
+    flex-direction: column;
+  }
+  .thumb {
+    width: 100%;
+    margin: 1rem auto;
+  }
+  nav {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+}

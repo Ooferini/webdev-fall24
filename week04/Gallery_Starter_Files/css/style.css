@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+/* font-family: "Kaushan Script", cursive; */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* this is how we get a full sized fixed centered background */
+  background: url("../img/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+body {
+  font-family: "Kaushan Script", cursive;
+  /* If the parent element has it, so will the child elements, unless we override it */
+}
+
+/* NAVIGATION */
+header {
+  width: 80%;
+  padding: 0 10%;
+  height: 50px;
+  overflow-y: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-bottom: 10px;
+  z-index: 10;
+  background-color: gray;
+  /* flexbox properties */
+  /* flexbox container property */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: url("../img/struckaxiom.png");
+}
+
+header h1 {
+  color: #444;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  text-align: center;
+  background-color: rgba(40%, 40%, 60%, 10%);
+}
+
+nav li {
+  font-size: 18px;
+  height: 50px;
+  line-height: 50px;
+  width: 120px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #444;
+  display: block;
+  /* we always define transition in the initial style */
+  transition: all 0.5s;
+}
+
+nav a:hover {
+  /* these will animate because of something idk */
+  background-color: #444;
+  color: #ccc;
+}
+
+nav a.active {
+  background-color: black;
+  color: #6495ed;
+}
+
+/* GALLERY */
+.container {
+  width: 900px;
+  margin: 100px auto;
+  /* when we use inline block to stack things we have to zero out font size on the container element */
+  font-size: 0;
+}
+
+.polaroid {
+  width: 260px;
+  margin: 20px;
+  display: inline-block;
+  /* WHENEVER YOU WANT A CHILD ELEMENT TO POSITION IN A PARENT ELEMENT, YOU HAVE TO RELATIVE POSITION THE PARENT*/
+  position: relative;
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  border: 10px solid white;
+  border-bottom-width: 45px;
+}
+
+.polaroid p {
+  font-size: 1rem;
+  position: absolute;
+  bottom: 14px;
+  width: 280px;
+  text-align: center;
+}
+
+/* TRANSFORMS */
+.scaleUp {
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+.skewX {
+  transform: skewX(-20deg);
+}
+
+.skewY {
+  transform: skewY(-20deg);
+}
+
+.rotX {
+  transform: rotateX(180deg);
+}
+
+.rotY {
+  transform: rotateY(180deg);
+}
+
+.rotZ {
+  transform: rotateZ(120deg);
+}
+
+.rotateLeft {
+  transform: rotate(-20deg);
+  transition: all 5s ease-in-out;
+}
+
+.rotateLeft:hover {
+  transform: rotate(20deg);
+}
+
+.skewHover {
+  transform: skewX(-30deg);
+  transition: all 2s ease-out;
+}
+
+.skewHover:hover {
+  transform: skewX(30deg);
+}
+
+.colorSwap {
+  filter: grayscale(100%);
+  transition: all 2s ease-in-out;
+}
+
+.colorSwap:hover {
+  filter: none;
+}

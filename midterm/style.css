@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: order-box;
+}
+
+body {
+  font-family: "Space Mono", monospaced;
+}
+
+header {
+  width: 65%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  width: 40%;
+  margin: 2rem;
+  padding: 2rem;
+}

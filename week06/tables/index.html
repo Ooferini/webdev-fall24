@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>tables</title>
+    <style>
+      body {
+        font-family: "Basically A Mono", monospaced;
+      }
+      table {
+        border-collapse: collapse;
+        margin: auto;
+        width: 100%;
+      }
+      th,
+      td {
+        border-bottom: 2px solid grey;
+        padding: 0.2rem;
+        width: 33%;
+      }
+
+      td {
+        padding-left: 1rem;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+      }
+
+      td:first-child {
+        color: blue;
+        border-left: none;
+      }
+      td:last-child {
+        border-right: none;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr:nth-child(even) td {
+        background-color: aquamarine;
+      }
+      main {
+        width: 70%;
+        padding: 3rem;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>age</th>
+            <th>major</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>josef</td>
+            <td>19</td>
+            <td>IDM</td>
+          </tr>
+          <tr>
+            <td>miles</td>
+            <td>18</td>
+            <td>gallatin</td>
+          </tr>
+          <tr>
+            <td>amélie</td>
+            <td>21</td>
+            <td>cinema studies</td>
+          </tr>
+          <tr>
+            <td>darlene</td>
+            <td>19</td>
+            <td>film & tv</td>
+          </tr>
+          <tr>
+            <td>connor</td>
+            <td>19</td>
+            <td>recorded music</td>
+          </tr>
+          <tr>
+            <td>yio</td>
+            <td>23</td>
+            <td>psychology</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

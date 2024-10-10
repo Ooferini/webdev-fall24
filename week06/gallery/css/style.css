@@ -1,0 +1,174 @@
+/* Global styles and resets */
+
+/* take into account the borders and padding when setting dimensinos of our 'boxes' */
+* {
+  box-sizing: border-box;
+}
+
+/* zero out margins across the page */
+html,
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", helvetica, sans-serif;
+}
+
+/* scale images to fit their parent container */
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* desktop-first styling = default styles are for large screens and our media queries get smaller*/
+
+/* JUMBOTRON */
+div.hero {
+  width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.hero article {
+  position: absolute;
+  bottom: 10%;
+  right: 0;
+  width: 50%;
+  padding: 2%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 20, 40, 0.6) 10%,
+    rgba(255, 20, 40, 0.1) 100%
+  );
+}
+
+button,
+a.info {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: linear-gradient(
+    to bottom,
+    rgba(254, 204, 177, 1) 0%,
+    rgba(241, 116, 50, 1) 50%,
+    rgba(234, 85, 7, 1) 51%,
+    rgba(251, 149, 94, 1) 100%
+  );
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 1s linear;
+}
+
+button:hover,
+a.info:hover {
+  background: linear-gradient(
+    to bottom,
+    rgba(234, 184, 157, 1) 0%,
+    rgba(221, 96, 30, 1) 50%,
+    rgba(214, 65, 0, 1) 51%,
+    rgba(231, 129, 74, 1) 100%
+  );
+  text-decoration: underline;
+}
+
+/* PORTFOLIO THUMBS */
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.thumb {
+  position: relative;
+  /* flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 30%; */
+  /* flex: 0 0 30%; */
+  width: 30%;
+  overflow: hidden;
+  margin: 1.5rem auto;
+}
+
+/* preparing our initial state for image transforms */
+.thumb img {
+  transform: scale(1);
+  transform: rotate(0deg);
+  transition: all 1s ease;
+}
+
+.thumb:hover img {
+  transform: scale(1.5) rotate(-20deg);
+}
+
+.mask {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  background-color: rgba(200, 200, 200, 0.5);
+  transition: all 0.5s ease-in-out;
+}
+
+.mask h2 {
+  margin: 0;
+}
+
+.mask p {
+  font-style: italic;
+}
+
+.thumb:hover .mask {
+  opacity: 1;
+}
+
+.thumb .mask h2,
+.thumb .mask p,
+.thumb .mask a {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 1s ease-out;
+}
+
+.thumb:hover .mask h2,
+.thumb:hover .mask p,
+.thumb:hover .mask a {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* MEDIA QUERIES */
+
+/* tablet */
+@media screen and (max-width: 1024px) {
+  .hero article {
+    width: 75%;
+  }
+
+  .thumb {
+    width: 45%;
+  }
+}
+
+/* phones */
+@media screen and (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    padding: 0.75rem;
+  }
+  .hero article {
+    width: 100%;
+    bottom: 0;
+    padding: 1rem;
+  }
+  .thumb {
+    width: 100%;
+  }
+}

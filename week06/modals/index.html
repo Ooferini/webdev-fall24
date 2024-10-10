@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CSS Modal</title>
+    <style type="text/css">
+      body {
+        font-family: "Space Mono", monospaced;
+        margin: 2rem;
+      }
+      h1 {
+        margin-bottom: 4rem;
+      }
+      a.button {
+        text-decoration: none;
+        color: white;
+        background-color: blueviolet;
+        padding: 1rem 2rem;
+        border-radius: 0.25rem;
+      }
+
+      /* Modal Styles */
+      .overlay {
+        /* stretch the overlay div to cover the entire screen */
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        /* transparent */
+        background-color: rgba(66, 108, 124, 0.381);
+        /* make sure our modal shows up in front of everything else */
+        z-index: 9999;
+        /* starting state opacity of 0% */
+        opacity: 0%;
+        /* we always define our transitions on the starting state */
+        transition: opacity 400ms ease-in;
+        /* when our modal is invisible, we shouldn't be able to click on anything in it */
+        pointer-events: none;
+      }
+
+      .overlay:target {
+        opacity: 1;
+        /* re-allow pointer events */
+        pointer-events: auto;
+      }
+
+      .overlay > div {
+        width: 400px;
+        height: 300px;
+        background-color: white;
+        position: relative;
+        margin: 10% auto;
+        padding: 4rem;
+        border-radius: 10px;
+      }
+
+      .close {
+        line-height: 40px;
+        margin: auto;
+        font-size: 20px;
+        height: 40px;
+        width: 40px;
+        background-color: white;
+        color: blueviolet;
+        /* position close button on top right corner */
+        position: absolute;
+        top: 0;
+        right: 0;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.5s ease;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+
+      .close:hover {
+        background-color: blueviolet;
+        color: white;
+      }
+
+      .button_bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 4rem;
+      }
+
+      .scrollable {
+        overflow-y: scroll;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>hello modals!</h1>
+    <a href="#info" class="button">Link to Modal 1</a>
+    <a href="#info2" class="button">Link to Modal 2</a>
+
+    <!-- Modal 1 -->
+    <!-- parent/wrapper div it recieves the ID, and will be our transparent overlay -->
+    <div id="info" class="overlay">
+      <!-- this child div is the modal box itself -->
+      <div>
+        <!-- close button, absolutely positioned to top right corner -->
+        <a href="#" class="close">X</a>
+        <!-- you can put whatever HTML elements you need to inside the modal inner div -->
+        <h2>modal title 1</h2>
+        <p>look at me! I am modal number 1</p>
+        <div class="scrollable">
+          <p>
+            I'm baby biodiesel marxism asymmetrical big mood hell of fit meh
+            shaman PBR&B waistcoat butcher drinking vinegar actually. Same big
+            mood YOLO readymade, twee hoodie freegan gorpcore bodega boys cloud
+            bread. Tofu edison bulb selvage, palo santo small batch sartorial
+            seitan. Franzen viral crucifix gorpcore street art drinking vinegar
+            taiyaki mumblecore fanny pack bodega boys, chambray coloring book
+            yes plz salvia ethical. Brunch heirloom yr lomo ugh.
+          </p>
+
+          <p>
+            Bruh offal edison bulb kitsch keffiyeh sriracha authentic unicorn
+            tote bag drinking vinegar selvage brunch bicycle rights godard.
+            Disrupt big mood jawn, microdosing chicharrones unicorn street art
+            selvage cloud bread vape. Yuccie typewriter salvia, praxis vinyl
+            Brooklyn activated charcoal post-ironic wayfarers vibecession pop-up
+            copper mug hell of grailed. Pitchfork freegan DSA, polaroid you
+            probably haven't heard of them literally put a bird on it brunch
+            letterpress yes plz.
+          </p>
+
+          <p>
+            Mumblecore asymmetrical live-edge, chambray air plant hammock
+            bitters selfies leggings blue bottle heirloom activated charcoal.
+            Pop-up vinyl leggings portland grailed, normcore solarpunk trust
+            fund vice food truck la croix. Coloring book pour-over tattooed same
+            poutine thundercats snackwave subway tile tousled portland
+            vexillologist letterpress PBR&B. Before they sold out sus kitsch
+            trust fund DIY, iceland chicharrones. Kale chips church-key
+            cold-pressed cupping, VHS hammock lomo pok pok small batch.
+          </p>
+
+          <p>
+            Vape fanny pack street art pour-over yr. Gochujang art party tonx
+            hashtag viral kitsch, semiotics cloud bread prism occupy Brooklyn
+            banh mi authentic. Ascot big mood blue bottle edison bulb, cloud
+            bread kogi unicorn trust fund hell of kickstarter 90's scenester.
+            Next level organic letterpress messenger bag raw denim slow-carb DIY
+            bespoke flannel gochujang bitters taiyaki Brooklyn pitchfork forage.
+            Semiotics truffaut selfies, beard waistcoat trust fund succulents
+            ugh aesthetic. Poke lumbersexual pinterest palo santo sartorial
+            everyday carry chicharrones mustache hammock bodega boys forage kale
+            chips blue bottle. Godard poke paleo yuccie williamsburg cray
+            waistcoat pop-up gorpcore af.
+          </p>
+
+          <p>
+            Tofu viral narwhal trust fund, tilde twee praxis succulents XOXO
+            mustache messenger bag crucifix selfies ugh. Literally PBR&B
+            mixtape, banjo craft beer tattooed meh helvetica bushwick cloud
+            bread microdosing. Lumbersexual messenger bag pickled, ramps
+            coloring book solarpunk hella portland chia butcher. Fanny pack tbh
+            tofu synth, tote bag fixie hashtag post-ironic. Cupping dreamcatcher
+            distillery, snackwave kombucha DSA coloring book 3 wolf moon
+            humblebrag mlkshk. Gentrify same listicle banjo meggings hoodie
+            authentic.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- END Modal 1 -->
+
+    <!-- Modal 2 -->
+    <!-- parent/wrapper div it recieves the ID, and will be our transparent overlay -->
+    <div id="info2" class="overlay">
+      <!-- this child div is the modal box itself -->
+      <div>
+        <!-- close button, absolutely positioned to top right corner -->
+        <a href="#" class="close">X</a>
+        <!-- you can put whatever HTML elements you need to inside the modal inner div -->
+        <h2>modal title 2</h2>
+        <p>look at me! I am modal number 2</p>
+        <div class="button_bar">
+          <a href="#info2" class="button">accept</a>
+          <a href="#" class="button">decline</a>
+        </div>
+      </div>
+    </div>
+    <!-- END Modal 2 -->
+  </body>
+</html>

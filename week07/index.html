@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JS Data Types</title>
+    <script type="text/javascript">
+      //declare a variable
+      var myVar;
+      //assign a value to a variable
+      myVar = "number";
+      //declare and assign at the same time
+      var myVar2 = 15;
+      //print something to the console
+      console.log(myVar);
+      console.log(typeof myVar);
+
+      //consts must be instantiated
+      const isOn = true;
+      //let is used when a value is going to change based on other conditions
+      //or if we need to declare but not instantiate
+      let conditionalMessage;
+
+      if (isOn) {
+        conditionalMessage = "The lights are on!";
+      } else {
+        conditionalMessage = "The lights are off!";
+      }
+      //alert(conditionalMessage);
+      const myNum = 80;
+      //template literals
+      //must use BACK TICK ` NOT QUOTES ' "
+      const anotherMessage = `My favorite number is ${myNum}. So my double favorite number must be ${
+        myNum * 2
+      }!`;
+      console.log(anotherMessage);
+    </script>
+  </head>
+  <body>
+    <p id="one"></p>
+  </body>
+</html>

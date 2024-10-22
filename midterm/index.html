@@ -7,27 +7,79 @@
     <title>Third West Hub</title>
   </head>
   <body>
+    <!-- header at top of page with title and subtitle -->
     <header>
       <h1>Third West Hub</h1>
       <h2>your one-stop shop for all dorm-related needs</h2>
     </header>
+    <!-- section with all the different cards that link to other pages -->
     <main>
-      <section id="RA" class="card">
-        <h2>Your RA</h2>
-        <p>learn more about your awesome RA and how to get in touch with him</p>
-      </section>
-      <section id="building" class="card">
-        <h2>Weinstein</h2>
-        <p>get info on building amenities and policies</p>
-      </section>
-      <section id="campus" class="card">
-        <h2>Around Campus</h2>
-        <p>see what's going on around campus</p>
-      </section>
-      <section id="FAQ" class="card">
-        <h2>FAQ</h2>
-        <p>screw this just let me see the short version</p>
-      </section>
+      <div class="wrapper">
+        <section
+          id="RA"
+          class="card link"
+          onclick="window.open('josef.html', '_self');"
+        >
+          <div class="card-header">
+            <h2>Your RA</h2>
+            <img src="img/sparkle.svg" width="10%" />
+          </div>
+          <p>
+            learn more about your RA and how to get in touch with him! make an
+            appointment, join the groupme, etc.
+          </p>
+        </section>
+        <section
+          id="building"
+          class="card link"
+          onclick="window.open('stein.html', '_self');"
+        >
+          <div class="card-header">
+            <h2>Weinstein Hall</h2>
+            <img src="img/sparkle.svg" width="10%" />
+          </div>
+          <p>
+            get info on building amenities, policies, and hall-led events. tips
+            to make the bricks easier to deal with
+          </p>
+        </section>
+        <section
+          id="campus"
+          class="card link"
+          onclick="window.open('nyu.html', '_self');"
+        >
+          <div class="card-header">
+            <h2>Around Campus</h2>
+            <img src="img/sparkle.svg" width="10%" />
+          </div>
+          <p>
+            see what's going on around campus! events, initiatives, and other
+            stuff you probably want to know about
+          </p>
+        </section>
+        <section
+          id="FAQ"
+          class="card link"
+          onclick="window.open('faq.html', '_self');"
+        >
+          <div class="card-header">
+            <h2>FAQ</h2>
+            <img src="img/sparkle.svg" width="10%" />
+          </div>
+          <p>
+            the most commonly asked questions and the best answers i can give
+          </p>
+        </section>
+      </div>
     </main>
+    <footer>
+      <div class="footer-container">
+        <p>josef dunlap</p>
+        <p>:)</p>
+        <p>
+          <a href="https://newdorkcity.online">newdorkcity.online</a>
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

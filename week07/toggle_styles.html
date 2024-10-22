@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>JS Toggle Styles</title>
+    <script>
+      function toggleActive() {
+        const element = document.getElementById("changeMe");
+        element.innerHTML += "aaah! aaah! aaah! ";
+        //see if element doesn't have active class
+        // if (!element.classList.contains("active")) {
+        //   element.classList.add("active");
+        //   element.innerHTML =
+        //     "This is a changed!! headign 1. click me to change me back!";
+        // } else {
+        //   element.classList.remove("active");
+        //   element.innerHTML =
+        //     "This is a headign 1. click me to change css class and html content!";
+        // }
+      }
+    </script>
+    <style>
+      .active {
+        background-color: #006fff;
+        color: white;
+        font-size: 60px;
+      }
+      h1 {
+        width: 70%;
+        font-family: Helvetica, sans-serif;
+        margin: 20% auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="changeMe" onClick="toggleActive()">
+      This is a headign 1. click me to add some text!
+    </h1>
+  </body>
+</html>

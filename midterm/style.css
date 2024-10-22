@@ -1,28 +1,129 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: order-box;
+  box-sizing: border-box;
 }
 
 body {
   font-family: "Space Mono", monospaced;
+  background-color: #f4ebe8;
 }
 
 header {
-  width: 65%;
-  margin: 2rem auto;
+  width: 100%;
+  padding: 2rem 0 1rem 0;
+  margin-bottom: 2rem;
   text-align: center;
+  background-color: #7785ac;
+  box-shadow: 0 0.5rem 1rem 0.5rem rgba(0, 0, 0, 0.7);
+  border-radius: 0 0 1rem 1rem;
+  color: white;
 }
 
-main {
+.subpage-header {
+  width: 60%;
+  margin: 2rem auto;
+  border-radius: 2rem;
+  box-shadow: 0.5rem 0.5rem 1rem 0.5rem rgba(0, 0, 0, 0.7);
+}
+
+.wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
+.link {
+  cursor: pointer;
+}
+
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 40%;
-  margin: 2rem;
-  padding: 2rem;
+  margin: 2rem auto;
+  padding: 2.5rem 4rem 3rem 4rem;
+  border-radius: 3.5rem;
+  box-shadow: 0.5rem 0.5rem 1rem 0.1rem #5b2a86;
+  background-color: #5b2a86;
+  color: white;
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-weight: normal;
+  padding-bottom: 2rem;
+}
+
+.card h2 {
+  font-weight: bold;
+}
+
+main {
+  width: 100%;
+}
+
+.back-button {
+  display: flex;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  cursor: pointer;
+  color: #5b2a86;
+}
+
+.back-button p {
+  margin-left: 0.25rem;
+}
+
+.back-button p:hover {
+  text-decoration: underline;
+}
+
+footer {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  background-color: lightgray;
+  height: 4rem;
+  margin-top: 4rem;
+}
+
+.footer-container {
+  position: absolute;
+  bottom: 1rem;
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+a:visited {
+  color: white;
+}
+
+.card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 70%;
+  }
+
+  .footer-container {
+    width: 100%;
+  }
+
+  footer {
+    width: 100%;
+  }
 }

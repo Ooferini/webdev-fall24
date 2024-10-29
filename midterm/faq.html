@@ -9,6 +9,14 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_back"
     />
     <title>Third West Hub | FAQ</title>
+    <!-- styles for accordion specifically -->
+    <style>
+      .panel {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
+      }
+    </style>
   </head>
   <body>
     <div class="back-button" onclick="window.open('index.html', '_self');">
@@ -28,8 +36,12 @@
         />
       </section>
       <section class="card">
-        <h2>events</h2>
-        <p>cool events around campus</p>
+        <div class="card-header accordion">
+          <h2>events</h2>
+        </div>
+        <div class="panel">
+          <p>cool events around campus</p>
+        </div>
       </section>
     </main>
     <footer>
@@ -41,5 +53,20 @@
         </p>
       </div>
     </footer>
+
+    <script>
+      var accordions = document.getElementsByClassName("accordion");
+
+      for (var i = 0; i < accordions.length; i++) {
+        accordions[i].addEventListener("click", function () {
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
   </body>
 </html>

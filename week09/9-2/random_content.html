@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>random content</title>
+    <script type="text/javascript">
+      //make an array of image sources to choose from at random when the page loads
+      var arrImg = [
+        'https://en.wikipedia.org/wiki/Cat#/media/File:Cat_August_2010-4.jpg',
+        'https://cdn.britannica.com/34/235834-050-C5843610/two-different-breeds-of-cats-side-by-side-outdoors-in-the-garden.jpg?w=300',
+        'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg',
+      ];
+      //random links to correspond to each image
+      var arrLinks = [
+        'https://en.wikipedia.org/wiki/Cat',
+        'https://www.britannica.com/animal/cat',
+        'https://www.nationalgeographic.com/animals/mammals/facts/domestic-cat',
+      ];
+
+      //helper function for picking a random number between 0 and max
+      function randomIndex(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+      //write our own random image function outside of our event listeners
+      //remember not to call this function until the DOM loads
+      function loadRandImg() {
+        var index = randomIndex(arrImg.length);
+        var img = document.getElementById('animal');
+        var link = document.getElementById('dynLink');
+
+        //assign the src attribute of the image element to a string stored in a random index slot in our image array
+        img.src = arrImg[index];
+        //assign the href attribute of the link to a string stored in the corresponding index slot in our links array
+        link.href = arrLinks[index];
+      }
+
+      // loadRandImg()
+      //wait for the page to finish loading the body content before we try to store any elements as js variables
+      document.addEventListener('DOMContentLoaded', function () {
+        //assign elements to variables, call other functions we want to run on load, etc.
+        loadRandImg();
+      });
+    </script>
+  </head>
+  <body>
+    <a href="#" id="dynLink" target="_blank"><img src="" id="animal" /></a>
+  </body>
+</html>

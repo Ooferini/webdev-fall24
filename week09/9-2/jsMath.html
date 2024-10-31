@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>js math</title>
+    <script type="text/javascript">
+      // integers = whole numbers
+      const x = 15;
+      const y = 35;
+      let z;
+      z = 10.5; //float
+
+      //addition
+      console.log(x + y);
+      //subtraction
+      console.log(x - y);
+      //multiplication
+      console.log(x * y);
+      //division
+      console.log(x / y);
+      //modulo
+      console.log(x % y);
+
+      //just like algebra, order of operations matters
+      console.log((x + y) * (y - 1));
+
+      //increments
+      //x++
+
+      //decrement
+      //x--
+
+      //increment/decrement by a certain number
+      // x += 2
+      // x -= 2
+
+      //floating point numbers and some basic math methods
+      var k = 2.25;
+      //Math.floor(num) will ALWAYS round down
+      console.log("floor k result = ", Math.floor(k));
+
+      //Math.ceil(num) will ALWAYS round up
+      console.log("ceil k result = ", Math.ceil(k));
+
+      //Math.round(num) will round up or down based on the decimal value
+      var num1 = 2.2;
+      var num2 = 2.7;
+      console.log("round num1 result = ", Math.round(num1));
+      console.log("round num2 result = ", Math.round(num2));
+
+      //Math.random() returns a random float BETWEEN 0 and 1
+      console.log(Math.random());
+
+      //We can use Math.random() in combination with Math.round() to get the whole number 0 or 1
+      var yn = Math.round(Math.random()) === 0 ? false : true;
+      console.log(yn);
+
+      //Random number between 0 and n
+      function randNum(n) {
+        //when we declare a variable in a function it is scoped to that function
+        var rand = Math.round(n * Math.random());
+        return rand;
+      }
+      //this helper function is super helpful when you need to pull a random value out of an array
+      var q = randNum(34);
+      console.log(q);
+
+      //test is a global variable but it gets a value assigned when we call a function
+      var test;
+      function randNumRange(min, max) {
+        var rand = min + Math.round((max - min) * Math.random());
+        return rand;
+      }
+      q = randNumRange(50, 60);
+      console.log(q);
+
+      var rand1 = randNumRange(20, 30);
+      var rand2 = randNumRange(130, 255);
+    </script>
+  </head>
+  <body></body>
+</html>

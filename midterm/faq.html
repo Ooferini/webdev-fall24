@@ -12,9 +12,19 @@
     <!-- styles for accordion specifically -->
     <style>
       .panel {
+        opacity: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.5s ease-out;
+        transition: all 0.5s ease-out;
+      }
+
+      .q,
+      .a {
+        padding: 0.5rem;
+      }
+
+      .q {
+        font-weight: bold;
       }
     </style>
   </head>
@@ -35,12 +45,43 @@
           caption="clipart 3d man with magnifying glass"
         />
       </section>
-      <section class="card">
+      <section class="card folding">
         <div class="card-header accordion">
-          <h2>events</h2>
+          <h2>guests</h2>
+          <h2 class="plus">+</h2>
         </div>
         <div class="panel">
-          <p>cool events around campus</p>
+          <ul>
+            <li class="q">
+              what do i need to do to have a guest stay with me?
+            </li>
+            <li class="a">
+              give your roommate(s) notice! (you probably set a specific
+              timeframe in your living agreement)
+            </li>
+            <li class="q">can i have a guest stay overnight?</li>
+            <li class="a">yes, as long as your roommate(s) are fine with it</li>
+            <li class="q">what's a guest pass?</li>
+            <li class="a">
+              a guest pass lets your guest get into the building without you
+              signing them in
+            </li>
+            <li class="q">how do i get my guest a guest pass?</li>
+            <li class="a">
+              the form is at the resource center. you and your roommates need to
+              fill it out and then return it to the RC
+            </li>
+            <li class="q">how long can a guest stay?</li>
+            <li class="a">
+              no more than 4 nights in a row, and no more than 6 nights per
+              calendar month
+            </li>
+            <li class="q">do guests have to follow any special rules?</li>
+            <li class="a">
+              they're expected to follow all of the same residential policies
+              you do
+            </li>
+          </ul>
         </div>
       </section>
     </main>
@@ -62,8 +103,10 @@
           var panel = this.nextElementSibling;
           if (panel.style.maxHeight) {
             panel.style.maxHeight = null;
+            panel.style.opacity = 0;
           } else {
             panel.style.maxHeight = panel.scrollHeight + "px";
+            panel.style.opacity = "100%";
           }
         });
       }

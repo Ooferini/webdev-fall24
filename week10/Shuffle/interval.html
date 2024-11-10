@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Set Interval</title>
+    <script>
+      function intervalTest() {
+        let p = document.getElementById('timeElapsed');
+        counter += 1;
+        p.innerHTML = counter;
+      }
+
+      // call a function directly on the browser window
+      window.setInterval(intervalTest, 100);
+    </script>
+  </head>
+  <body>
+    <p id="timeElapsed">This text will go away...</p>
+  </body>
+</html>

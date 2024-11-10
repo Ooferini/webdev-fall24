@@ -7,7 +7,7 @@
 
 /* global font and background color */
 body {
-  font-family: "Space Mono", monospaced;
+  font-family: 'Space Mono', monospaced;
   background-color: #f4ebe8;
 }
 
@@ -33,6 +33,7 @@ header {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding-bottom: 4rem;
 }
 
 /* needed since i'm not using the anchor tag */
@@ -97,13 +98,16 @@ main {
   text-decoration: underline;
 }
 
+.wrapper {
+  background-color: #f4ebe8;
+}
+
 footer {
   width: 100%;
   position: relative;
   bottom: 0;
   background-color: lightgray;
   height: 4rem;
-  margin-top: 4rem;
   border-top: 0.5rem solid black;
 }
 

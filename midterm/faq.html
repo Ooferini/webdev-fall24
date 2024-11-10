@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_back"
     />
+    <script src="bg-color.js"></script>
     <title>Third West Hub | FAQ</title>
     <!-- styles for accordion specifically -->
     <style>
@@ -29,62 +30,66 @@
     </style>
   </head>
   <body>
-    <div class="back-button" onclick="window.open('index.html', '_self');">
-      <span class="material-symbols-outlined"> arrow_back </span>
-      <p>back 2 home</p>
+    <div class="wrapper">
+      <div class="back-button" onclick="window.open('index.html', '_self');">
+        <span class="material-symbols-outlined"> arrow_back </span>
+        <p>back 2 home</p>
+      </div>
+      <header class="subpage-header">
+        <h1>FAQ</h1>
+        <h2 class="subtitle">the standard go-to questions</h2>
+      </header>
+      <main>
+        <section class="card">
+          <img
+            class="pic"
+            src="img/faq.webp"
+            caption="clipart 3d man with magnifying glass"
+          />
+        </section>
+        <section class="card folding">
+          <div class="card-header accordion">
+            <h2>guests</h2>
+            <h2 class="plus">+</h2>
+          </div>
+          <div class="panel">
+            <ul>
+              <li class="q">
+                what do i need to do to have a guest stay with me?
+              </li>
+              <li class="a">
+                give your roommate(s) notice! (you probably set a specific
+                timeframe in your living agreement)
+              </li>
+              <li class="q">can i have a guest stay overnight?</li>
+              <li class="a">
+                yes, as long as your roommate(s) are fine with it
+              </li>
+              <li class="q">what's a guest pass?</li>
+              <li class="a">
+                a guest pass lets your guest get into the building without you
+                signing them in
+              </li>
+              <li class="q">how do i get my guest a guest pass?</li>
+              <li class="a">
+                the form is at the resource center. you and your roommates need
+                to fill it out and then return it to the RC
+              </li>
+              <li class="q">how long can a guest stay?</li>
+              <li class="a">
+                no more than 4 nights in a row, and no more than 6 nights per
+                calendar month
+              </li>
+              <li class="q">do guests have to follow any special rules?</li>
+              <li class="a">
+                they're expected to follow all of the same residential policies
+                you do
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
     </div>
-    <header class="subpage-header">
-      <h1>FAQ</h1>
-      <h2 class="subtitle">the standard go-to questions</h2>
-    </header>
-    <main>
-      <section class="card">
-        <img
-          class="pic"
-          src="img/faq.webp"
-          caption="clipart 3d man with magnifying glass"
-        />
-      </section>
-      <section class="card folding">
-        <div class="card-header accordion">
-          <h2>guests</h2>
-          <h2 class="plus">+</h2>
-        </div>
-        <div class="panel">
-          <ul>
-            <li class="q">
-              what do i need to do to have a guest stay with me?
-            </li>
-            <li class="a">
-              give your roommate(s) notice! (you probably set a specific
-              timeframe in your living agreement)
-            </li>
-            <li class="q">can i have a guest stay overnight?</li>
-            <li class="a">yes, as long as your roommate(s) are fine with it</li>
-            <li class="q">what's a guest pass?</li>
-            <li class="a">
-              a guest pass lets your guest get into the building without you
-              signing them in
-            </li>
-            <li class="q">how do i get my guest a guest pass?</li>
-            <li class="a">
-              the form is at the resource center. you and your roommates need to
-              fill it out and then return it to the RC
-            </li>
-            <li class="q">how long can a guest stay?</li>
-            <li class="a">
-              no more than 4 nights in a row, and no more than 6 nights per
-              calendar month
-            </li>
-            <li class="q">do guests have to follow any special rules?</li>
-            <li class="a">
-              they're expected to follow all of the same residential policies
-              you do
-            </li>
-          </ul>
-        </div>
-      </section>
-    </main>
     <footer>
       <div class="footer-container">
         <p>josef dunlap</p>
@@ -96,17 +101,17 @@
     </footer>
 
     <script>
-      var accordions = document.getElementsByClassName("accordion");
+      var accordions = document.getElementsByClassName('accordion');
 
       for (var i = 0; i < accordions.length; i++) {
-        accordions[i].addEventListener("click", function () {
+        accordions[i].addEventListener('click', function () {
           var panel = this.nextElementSibling;
           if (panel.style.maxHeight) {
             panel.style.maxHeight = null;
             panel.style.opacity = 0;
           } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-            panel.style.opacity = "100%";
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+            panel.style.opacity = '100%';
           }
         });
       }

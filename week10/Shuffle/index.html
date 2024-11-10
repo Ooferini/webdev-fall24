@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Shuffle</title>
+    <script>
+      const students = [
+        'Katie',
+        'Cindy',
+        'Josef',
+        'John',
+        'Jhon',
+        'Nicholas',
+        'Eddie',
+        'Will',
+        'Yida',
+      ];
+
+      document.addEventListener('DOMContentLoaded', function () {
+        // assign html elements to js variables
+        // also add event listeners
+        // and any other code you want to fire off the second the page has fully loaded
+
+        document.getElementById('list').addEventListener('click', listStudents);
+        document.getElementById('sort').addEventListener('click', sortStudents);
+        document
+          .getElementById('shuffle')
+          .addEventListener('click', shuffleStudents);
+      });
+
+      function listStudents() {
+        // grab our content div by ID and store it as a local variable
+        const content = document.getElementById('content');
+        // create an ordered lsit node to store our student
+        const ol = document.createElement('OL');
+        //add the ol to our content div
+        content.appendChild(ol);
+
+        //loop through our student array
+        for (var i = 0; i < students.length; i++) {
+          //create a list item
+          const li = document.createElement('LI');
+          //grab student name from array at slot[i]
+          const stu = students[i];
+          const text = document.createTextNode(stu);
+          //add the text node to the li element
+          li.appendChild(text);
+          //add the LI to the OL
+          ol.appendChild(li);
+        }
+      }
+
+      function sortStudents() {
+        students.sort();
+        listStudents();
+      }
+
+      const shuffleStudents = () => {
+        for (var i = 0; i < students.length; i++) {
+          // get a random number between zero and whatever var i is this time in our loop
+          // const randomIndex = Math.floor(Math.random * (i + 1));
+          // get a random index within the range of the entire array
+          const randomIndex = Math.floor(Math.random() * (students.length - 1));
+          // place the item at that random index inside a variable
+          const itemAtIndex = students[randomIndex];
+          //swap the random item and the item at slot[i]
+          students[randomIndex] = students[i];
+
+          students[i] = itemAtIndex;
+        }
+        listStudents();
+      };
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Helvetica Neue', sans-serif;
+      }
+
+      em {
+        color: red;
+      }
+
+      button {
+        margin: 1rem;
+        padding: 0.5rem;
+        background-color: #e5989b;
+        border: none;
+        border-radius: 0.5rem;
+        color: white;
+        font-size: 1rem;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      button:active {
+        background-color: #b5838d;
+      }
+
+      #content {
+        padding-left: 2rem;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 1dvh;
+        column-count: auto;
+        column-width: 8rem;
+        flex-wrap: wrap;
+      }
+
+      li {
+        padding: 0.1rem;
+      }
+
+      ol {
+        margin: 2rem;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="list">List Students</button>
+    <button id="sort">Sort Students</button>
+    <button id="shuffle">Shuffle Students</button>
+    <div id="content"></div>
+  </body>
+</html>

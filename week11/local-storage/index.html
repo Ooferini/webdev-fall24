@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Local Storage</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Basically A Mono', monospaced;
+      }
+      #wrapper {
+        width: 75%;
+        margin: 5% auto auto auto;
+        padding: 5%;
+        border: 3rem solid grey;
+        border-radius: 3rem;
+      }
+      h1 {
+        margin-bottom: 4rem;
+      }
+      form {
+        margin-bottom: 2rem;
+      }
+    </style>
+    <script>
+      // set user name based on form input
+      let form;
+      document.addEventListener('DOMContentLoaded', () => {
+        form = document.getElementById('userInfo');
+        document.getElementById('nameBtn').addEventListener('click', (e) => {
+          e.preventDefault();
+          saveUser();
+          window.location.reload();
+        });
+        document
+          .getElementById('clearBtn')
+          .addEventListener('click', clearLocalStorage);
+        if (localStorage.firstName) {
+          // if localStorage.firstName exists, we replace "world" with it
+          document.getElementById('user').innerHTML = localStorage.firstName;
+        }
+      });
+
+      const saveUser = () => {
+        const name = document.getElementById('firstName').value;
+        console.log(name);
+        localStorage.firstName = name;
+      };
+
+      const clearLocalStorage = () => {
+        // clear local storage
+        localStorage.clear();
+        console.log('cleared!');
+        // after we clear local storage, we refresh
+        window.location.reload();
+      };
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>hello <span id="user">world</span></h1>
+
+      <form id="userInfo">
+        <label for="firstName">what's your name?</label>
+        <input type="text" name="firstName" id="firstName" required />
+        <button type="submit" id="nameBtn">submit</button>
+      </form>
+      <button id="clearBtn">clear current user</button>
+    </div>
+  </body>
+</html>

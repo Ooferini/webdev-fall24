@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fetch | Async | Await</title>
+    <!-- Today we are going to hit an API endpoint and dynamically insert HTML -->
+    <!-- Rick and Morty Character Stats, change characer index to select (random) -->
+    <!-- https://rickandmortyapi.com/api/character/1 -->
+    <!--
+    We will need to look at adding callback functions when our async functions complete
+    with .then()  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then
+    -->
+    <!-- We will format our messages using template literals
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals 
+    -->
+    <!-- Write our first arrow function
+      https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+    -->
+    <!-- Desctructuring Objects
+      https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+    -->
+
+    <script type="text/javascript">
+      // Our handle random number within a range util from week08
+      function randNumRange(min, max) {
+        var rn = Math.round(Math.random() * (max - min) + min);
+        // return a value from our function
+        return rn;
+      }
+
+      // you need to flag a function as async if you're going to use await
+      async function logApiResults() {
+        // generate a random index using our randNumRange function to use to grab a random character
+        const randIndex = randNumRange(0, 826);
+        // use template literals here to insert our random Index into our API endpoint URL
+        // await asks JS to wait for this to complete before continuing to read and execute code
+        const response = await fetch(
+          `https://rickandmortyapi.com/api/character/${randIndex}`
+        );
+
+        // we also need to await here, because it's dependent on another awaited variable
+        // if we don't await, we will just log a Promise
+        const result = await response.json();
+
+        const message = `${result.name} is a ${result.species} from ${result.origin.name} and is ${result.status}.`;
+        console.log(message);
+      }
+
+      // async function fetchCharacterJSON() {}
+
+      const fetchCharacterJSON = async () => {
+        const randIndex = randNumRange(0, 826);
+        const response = await fetch(
+          `https://rickandmortyapi.com/api/character/${randIndex}`
+        );
+        const result = await response.json();
+        return result;
+      };
+
+      //render a bunch of info as HTML elements
+
+      const renderCharacterInfo = (data) => {
+        // grab an element on our page
+        const characterMessage = document.getElementById('message');
+        console.log('success', data);
+
+        // OOOOO Destructuring
+        // we can extract any property by its key
+        // const name = data.name
+        // const specias = data.species
+        const { name, species, origin, status } = data;
+
+        // now we can format our message again but it will be cleaner because of the destructured values
+        const message = `${name} is a ${species} from ${origin.name} and they are ${status}`;
+
+        characterMessage.append(message);
+      };
+
+      fetchCharacterJSON()
+        .then((info) => {
+          renderCharacterInfo(info);
+          renderCharacterCard(info); // printing out a sentence about our character on the screen
+        })
+        .catch((error) => {
+          console.error('oopsie', error);
+        });
+
+      const renderCharacterCard = (data) => {
+        // we need a parent HTML element to add to
+        const card = document.getElementById('card');
+        // use template literals to format some HTML to insert
+        const headshot = `<img src="${data.image}" />`;
+
+        // insertAdjacentHTML(position, text)
+        card.insertAdjacentHTML('afterbegin', headshot);
+
+        // use append to insert text to an element on th epage
+        // result.name === character name
+        document.getElementById('characterName').append(data.name);
+
+        // store our table element as a variable
+        const charInfo = document.getElementById('charInfo');
+        // more destructuring
+        const { species, origin, status } = data;
+        // write this out with HTML in our HTML section first to fix syntax errors
+        const stats = `<tr>
+          <th>Species</th>
+          <td>${species}</td>
+        </tr>
+        <tr>
+          <th>Origin</th>
+          <td>${origin.name}</td>
+        </tr>
+        <tr>
+          <th>Status</th>
+          <td>${status}</td>
+        </tr>`;
+
+        charInfo.insertAdjacentHTML('beforeend', stats);
+      };
+    </script>
+    <style type="text/css">
+      /* Some custom fonts from google */
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+      * {
+        box-sizing: border-box;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      #card {
+        width: 25rem;
+        margin: 0 auto;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+        /* from Oribton font documentation */
+        font-family: 'Orbitron', sans-serif;
+      }
+
+      #inspo {
+        font-family: 'Rock Salt', cursive;
+        width: 50%;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="card">
+      <!-- afterbegin -->
+      <h3 id="characterName"></h3>
+      <table id="charInfo">
+        <!-- Begin Table -->
+
+        <!-- End Table -->
+      </table>
+      <!-- Add this for first function -->
+      <div id="message"></div>
+    </div>
+
+    <div id="inspo">
+      <p class="fancy"></p>
+      <p class="plain"></p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Josef :)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="screen border-red"></div>
+    <div class="screen border-blue"></div>
+    <div class="screen border-blue2"></div>
+    <div class="content">
+      <div id="info" class="move">
+        <h1>Josef Dunlap</h1>
+        <h2>
+          is a student in
+          <span class="IDM">Integrated Design and Media</span> and Linguistics
+          at NYU
+        </h2>
+      </div>
+      <div id="cards">
+        <div
+          id="about"
+          class="card move"
+          onclick="window.open('about.html', '_self');"
+        >
+          <p class="card-content">about</p>
+        </div>
+        <div
+          id="work"
+          class="card move"
+          onclick="window.open('work.html', '_self');"
+        >
+          <p class="card-content">work</p>
+        </div>
+        <div
+          id="contact"
+          class="card move"
+          onclick="window.open('contact.html', '_self');"
+        >
+          <p class="card-content">contact</p>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

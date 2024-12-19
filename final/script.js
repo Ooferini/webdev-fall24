@@ -19,3 +19,13 @@ tl.from('.move', {
   ease: 'back.out(1.2)',
   duration: 2,
 });
+
+function contact(){
+  const popouts = document.querySelectorAll('.contact-popout');
+  let offset = -128;
+  for(i of popouts){
+    i.style.opacity = 100;
+    gsap.to(i, {x: offset, duration: 1, ease: "elastic.out(1.2,0.75)",})
+    offset -= 86;
+  }
+}

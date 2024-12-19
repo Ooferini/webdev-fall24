@@ -1,12 +1,16 @@
 .slice {
   height: 10rem;
-  display: flex;
-  flex-direction: row;
   border-top: 0.25rem solid black;
   border-bottom: 0.25rem solid black;
-  font-size: 1.5rem;
-  justify-content: space-around;
   margin-bottom: -0.25rem;
+}
+
+.slice-content{
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
 }
 
 .title {

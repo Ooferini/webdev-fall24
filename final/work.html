@@ -35,6 +35,7 @@
       </div>
       <div class="slices">
         <div class="slice">
+          <div class="slice-content">
           <img
             class="thumb"
             src="img/81mph.png"
@@ -70,7 +71,9 @@
             </div>
           </div>
         </div>
+        </div>
         <div class="slice">
+          <div class="slice-content">
           <img class="thumb" src="img/wnyu.jpg" alt="WNYU logo" />
           <div class="title">
             <h3>new WNYU website</h3>
@@ -102,23 +105,23 @@
             </div>
           </div>
         </div>
+        </div>
         <div class="slice">
+          <div class="slice-content">
           <img class="thumb" src="img/wnyu.jpg" alt="WNYU logo" />
           <div class="title">
-            <h3>new WNYU website</h3>
+            <h3>STATIC magazine</h3>
             <h4>WNYU</h4>
           </div>
           <div class="desc">
             <p>
-              The previous tech director, the current general manager, and I
-              have been working on the new website for WNYU, set to go live next
-              month.
+              I have been the tech director for STATIC magazine at WNYU since its revival in early 2023. I also (very very occasionally) write for the site
             </p>
           </div>
           <div class="work-link">
             <div
               class="work-link-circle"
-              onclick="window.open('https://wnyu.vercel.app', '_blank');"
+              onclick="window.open('https://staticmag.org', '_blank');"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -133,8 +136,14 @@
               </svg>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script>
+      const works = document.querySelectorAll('.slice-content');
+      gsap.from(works, {duration: 2, x:"100%", stagger: 0.5,});
+    </script>
   </body>
 </html>
